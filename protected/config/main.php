@@ -63,10 +63,10 @@ return array(
                     'class'=>'bootstrap.components.Bootstrap',
                 ),
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=stihi',
+			'connectionString' => 'mysql:host=91.234.32.65;dbname=stihi',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'wer1988',
+			'username' => 'test',
+			'password' => 'test',
 			'charset' => 'utf8',
             'enableProfiling'=>true,
             'enableParamLogging'=>true,
