@@ -26,6 +26,9 @@ class SiteController extends Controller
         Yii::app()->getClientScript()->registerCoreScript('jquery');
         Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/jquery.carouFredSel-6.2.1-packed.js');
+        Yii::app()->bootstrap->register();
+        $cs = Yii::app()->getClientScript();
+        $cs->registerCssFile($cs->getCoreScriptUrl() . '/jui/css/base/jquery-ui.css');
         return parent::init();
     }
 
@@ -63,8 +66,6 @@ class SiteController extends Controller
         if(!isset($id) || !is_numeric($id)){
             $this->redirect("/");
         }
-        $this->layout = 'stih';
-        
         $poet = Poet::model()->findByPk($id);
         $poet->saveCounters(array('views'=>1));
         $model=Stihi::model()->findAll('poet_id=:poet_id', array('poet_id'=>$id));
@@ -86,8 +87,6 @@ class SiteController extends Controller
         if(!isset($id) || !is_numeric($id)){
             $this->redirect("/");
         }
-        $this->layout = 'stih';
-
         $model=Stihi::model()->findByPk($id);
         $this->render('stih',array('model'=>$model));
     }
@@ -154,11 +153,7 @@ class SiteController extends Controller
 	}
         
     public function beforeAction($action) {
-            Yii::app()->getClientScript()->registerCoreScript('jquery');
-            Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
-            Yii::app()->bootstrap->register();
-            $cs = Yii::app()->getClientScript();
-            $cs->registerCssFile($cs->getCoreScriptUrl() . '/jui/css/base/jquery-ui.css');
+
             return true;
     }
 }

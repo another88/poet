@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
         "site/poet/id/{$model->poet->id}"
     ),
     $model->name,
-                
 );
 ?>
 <div id="poet_profile">
