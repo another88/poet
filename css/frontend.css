@@ -30,18 +30,18 @@ root {
     right: 60px;
     z-index: 1;
 }
-#header_menu #yw0{
+#header_menu ul{
     display: inline-block;
     left: 300px;
     position: relative;
     top: 140px;
     z-index: 999;
 }
-#header_menu #yw0 li{
+#header_menu ul li{
     display: block;
     float:left;
 }
-#header_menu #yw0 li a {
+#header_menu ul li a {
     background: url("../images/templatemo_menu_bg.png") no-repeat scroll center top transparent;
     color: #FFFFFF;
     display: block;
@@ -196,6 +196,36 @@ a.prev span, a.next span {
 .poet_image{
     height: 180px;
 }
-#yw0 .active a{
+ul .active a{
     color:#ffff00 !important;
+}
+.papirus{
+    background: url("/images/list/papirus2.png") no-repeat;
+    background-position:50px 50px;
+    width:1024px;
+    height: 1200px;
+}
+.tablica{
+    background: url("/images/list/tablica.png") no-repeat;
+    background-position:0px -200px;
+    width:1024px;
+    height: 1200px;
+}
+.stihi_data{
+    padding-left: 70px;
+    padding-top: 160px;
+    width: 860px;
+}
+.stihi_item a{
+    color:black;
+    font-size: 16px;
+}
+.stihi_item{
+    padding-bottom: 6px;
+}
+.tablica_content{
+    padding-left: 150px;
+    padding-top: 190px;
+    width: 780px;
+    font-size: 24px;
 }

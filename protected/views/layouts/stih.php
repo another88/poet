@@ -27,10 +27,10 @@
             </div>
             <?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Главная', 'url'=>array('/site/index')),
                 array('label'=>'Поэты', 'url'=>array('/site/poets')),
-                array('label'=>'Стихи', 'url'=>array('#')),
-				array('label'=>'About!', 'url'=>array('#', 'view'=>'about')),
+                array('label'=>'Стихи', 'url'=>array('/site/stihi')),
+				array('label'=>'About!', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('#')),
 				//array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				//array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
