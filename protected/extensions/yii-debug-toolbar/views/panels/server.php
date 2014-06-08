@@ -1,3 +1,3 @@
 <div id="dbgpv-php-info">
-    <?php echo $this->getPhpInfoContent() ?>
+  <?php echo $this->getPhpInfoContent() ?>
 </div>

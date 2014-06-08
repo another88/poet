@@ -1,5 +1,5 @@
 <?php
-return array (
+return array(
   'template' => 'default',
   'connectionId' => 'db',
   'tablePrefix' => '',

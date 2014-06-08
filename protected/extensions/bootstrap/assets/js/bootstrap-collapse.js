@@ -23,8 +23,8 @@
   "use strict"; // jshint ;_;
 
 
- /* COLLAPSE PUBLIC CLASS DEFINITION
-  * ================================ */
+  /* COLLAPSE PUBLIC CLASS DEFINITION
+   * ================================ */
 
   var Collapse = function (element, options) {
     this.$element = $(element)
@@ -39,14 +39,10 @@
 
   Collapse.prototype = {
 
-    constructor: Collapse
-
-  , dimension: function () {
+    constructor: Collapse, dimension: function () {
       var hasWidth = this.$element.hasClass('width')
       return hasWidth ? 'width' : 'height'
-    }
-
-  , show: function () {
+    }, show: function () {
       var dimension
         , scroll
         , actives
@@ -68,18 +64,14 @@
       this.$element[dimension](0)
       this.transition('addClass', $.Event('show'), 'shown')
       $.support.transition && this.$element[dimension](this.$element[0][scroll])
-    }
-
-  , hide: function () {
+    }, hide: function () {
       var dimension
       if (this.transitioning || !this.$element.hasClass('in')) return
       dimension = this.dimension()
       this.reset(this.$element[dimension]())
       this.transition('removeClass', $.Event('hide'), 'hidden')
       this.$element[dimension](0)
-    }
-
-  , reset: function (size) {
+    }, reset: function (size) {
       var dimension = this.dimension()
 
       this.$element
@@ -90,15 +82,13 @@
       this.$element[size !== null ? 'addClass' : 'removeClass']('collapse')
 
       return this
-    }
-
-  , transition: function (method, startEvent, completeEvent) {
+    }, transition: function (method, startEvent, completeEvent) {
       var that = this
         , complete = function () {
-            if (startEvent.type == 'show') that.reset()
-            that.transitioning = 0
-            that.$element.trigger(completeEvent)
-          }
+          if (startEvent.type == 'show') that.reset()
+          that.transitioning = 0
+          that.$element.trigger(completeEvent)
+        }
 
       this.$element.trigger(startEvent)
 
@@ -111,17 +101,15 @@
       $.support.transition && this.$element.hasClass('collapse') ?
         this.$element.one($.support.transition.end, complete) :
         complete()
-    }
-
-  , toggle: function () {
+    }, toggle: function () {
       this[this.$element.hasClass('in') ? 'hide' : 'show']()
     }
 
   }
 
 
- /* COLLAPSE PLUGIN DEFINITION
-  * ========================== */
+  /* COLLAPSE PLUGIN DEFINITION
+   * ========================== */
 
   var old = $.fn.collapse
 
@@ -142,8 +130,8 @@
   $.fn.collapse.Constructor = Collapse
 
 
- /* COLLAPSE NO CONFLICT
-  * ==================== */
+  /* COLLAPSE NO CONFLICT
+   * ==================== */
 
   $.fn.collapse.noConflict = function () {
     $.fn.collapse = old
@@ -151,8 +139,8 @@
   }
 
 
- /* COLLAPSE DATA-API
-  * ================= */
+  /* COLLAPSE DATA-API
+   * ================= */
 
   $(document).on('click.collapse.data-api', '[data-toggle=collapse]', function (e) {
     var $this = $(this), href

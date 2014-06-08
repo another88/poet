@@ -19,40 +19,41 @@
  */
 class YiiDebugToolbarPanelRequest extends YiiDebugToolbarPanel
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getMenuTitle()
-    {
-        return YiiDebug::t('Request');
-    }
+  /**
+   * {@inheritdoc}
+   */
+  public function getMenuTitle()
+  {
+    return YiiDebug::t('Request');
+  }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getTitle()
-    {
-        return YiiDebug::t('Request');
-    }
+  /**
+   * {@inheritdoc}
+   */
+  public function getTitle()
+  {
+    return YiiDebug::t('Request');
+  }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function init()
-    {}
+  /**
+   * {@inheritdoc}
+   */
+  public function init()
+  {
+  }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function run()
-    {
-        $this->render('request', array(
-            'server' => $_SERVER,
-            'cookies' => $_COOKIE,
-            'session' => isset($_SESSION) ? $_SESSION : null,
-            'post' => $_POST,
-            'get' => $_GET,
-            'files' => $_FILES,
-        ));
-    }
+  /**
+   * {@inheritdoc}
+   */
+  public function run()
+  {
+    $this->render('request', array(
+      'server' => $_SERVER,
+      'cookies' => $_COOKIE,
+      'session' => isset($_SESSION) ? $_SESSION : null,
+      'post' => $_POST,
+      'get' => $_GET,
+      'files' => $_FILES,
+    ));
+  }
 }

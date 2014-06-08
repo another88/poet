@@ -23,8 +23,8 @@
   "use strict"; // jshint ;_;
 
 
- /* POPOVER PUBLIC CLASS DEFINITION
-  * =============================== */
+  /* POPOVER PUBLIC CLASS DEFINITION
+   * =============================== */
 
   var Popover = function (element, options) {
     this.init('popover', element, options)
@@ -32,13 +32,11 @@
 
 
   /* NOTE: POPOVER EXTENDS BOOTSTRAP-TOOLTIP.js
-     ========================================== */
+   ========================================== */
 
   Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype, {
 
-    constructor: Popover
-
-  , setContent: function () {
+    constructor: Popover, setContent: function () {
       var $tip = this.tip()
         , title = this.getTitle()
         , content = this.getContent()
@@ -47,39 +45,31 @@
       $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
 
       $tip.removeClass('fade top bottom left right in')
-    }
-
-  , hasContent: function () {
+    }, hasContent: function () {
       return this.getTitle() || this.getContent()
-    }
-
-  , getContent: function () {
+    }, getContent: function () {
       var content
         , $e = this.$element
         , o = this.options
 
-      content = (typeof o.content == 'function' ? o.content.call($e[0]) :  o.content)
+      content = (typeof o.content == 'function' ? o.content.call($e[0]) : o.content)
         || $e.attr('data-content')
 
       return content
-    }
-
-  , tip: function () {
+    }, tip: function () {
       if (!this.$tip) {
         this.$tip = $(this.options.template)
       }
       return this.$tip
-    }
-
-  , destroy: function () {
+    }, destroy: function () {
       this.hide().$element.off('.' + this.type).removeData(this.type)
     }
 
   })
 
 
- /* POPOVER PLUGIN DEFINITION
-  * ======================= */
+  /* POPOVER PLUGIN DEFINITION
+   * ======================= */
 
   var old = $.fn.popover
 
@@ -95,16 +85,13 @@
 
   $.fn.popover.Constructor = Popover
 
-  $.fn.popover.defaults = $.extend({} , $.fn.tooltip.defaults, {
-    placement: 'right'
-  , trigger: 'click'
-  , content: ''
-  , template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+  $.fn.popover.defaults = $.extend({}, $.fn.tooltip.defaults, {
+    placement: 'right', trigger: 'click', content: '', template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
   })
 
 
- /* POPOVER NO CONFLICT
-  * =================== */
+  /* POPOVER NO CONFLICT
+   * =================== */
 
   $.fn.popover.noConflict = function () {
     $.fn.popover = old
